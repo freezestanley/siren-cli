@@ -37,9 +37,14 @@ module.exports = function (app) {
     // app.get('/save', function(req, res, next) {
     //     res.json({name:'aaa',pwd:'123'});
     // });
-    app.use('/jdt-web', expressproxy('hq-jdt-dev.zhongan.com', {
+    app.use('/local', function (req, res, next){
+      console.log('local = ' + req.url)
+      path = '../mock' + req.url + '.json'
+      res.send(require(path));
+    });
+    app.use('/cross', expressproxy('hq-jdt-dev.zhongan.com', {
       proxyReqPathResolver: function(req) {
-        return '/jdt-web' + require('url').parse(req.url).path;
+        return require('url').parse(req.url).path;
       }
     }));
 }

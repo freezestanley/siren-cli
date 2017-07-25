@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import {OTEST} from '../api'
+import {ILOGIN, ITEST} from '../api'
 export default {
   name: 'hello',
   data () {
@@ -33,13 +33,13 @@ export default {
   },
   methods: {
     fetchTest () {
-      // this.axios.post(ILOGIN).then((response) => {
-      //   console.dir(response)
-      // }).catch((err) => {
-      //   console.log(err)
-      //   throw new Error(err)
-      // })
-      this.axios.get(OTEST).then((response) => {
+      this.axios.post(ILOGIN).then((response) => {
+        console.dir(response)
+      }).catch((err) => {
+        console.log(err)
+        throw new Error(err)
+      })
+      this.axios.get(ITEST).then((response) => {
         console.dir(response)
       }).catch((err) => {
         console.log(err)

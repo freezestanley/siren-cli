@@ -28,11 +28,18 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/jdt-web': {
+      '/cross': {
         target: 'http://127.0.0.1:8999',
         changeOrigin: true,
         pathRewrite: {
-          '^/jdt-web': '/jdt-web'
+          '^/cross': '/cross'
+        }
+      },
+      '/local': {
+        target: 'http://127.0.0.1:8999',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/local': '/local'
         }
       }
     },
