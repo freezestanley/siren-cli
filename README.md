@@ -25,6 +25,14 @@ npm run e2e
 
 # run all tests
 npm test
-```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# run dll
+npm run dll
+
+# run mock
+npm run mock
+生成localhost:8999 服务器
+mock 文件夹 存放 本地mock json 文件
+可根据ajax URL 存放文件夹路径
+
+支持多个单个文件组成application

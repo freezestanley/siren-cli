@@ -6,10 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "dll": "webpack --config build/webpack.config.dll.js -p  --progress && rm -rf service/views/** && cp -r dist/* service/views/",
+    "dll": "webpack --config build/webpack.config.dll.js -p  --progress && rm -rf service/views/** && cp -r dist/* service/views/ && npm run build",
     "mock": "node service/app.js",
     "start": "node build/dev-server.js",
-    "build": "npm run dll && node build/build.js && cp -r dist/* service/views/",
+    "build": "node build/build.js && cp -r dist/* service/views/",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
