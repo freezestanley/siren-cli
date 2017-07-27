@@ -4,10 +4,15 @@ var config = require('../config')
 var entry = require('../config/entry')
 var vueLoaderConfig = require('./vue-loader.conf')
 var vuxLoader = require('vux-loader')
-
+var entry = require('../config/entry')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+
+// let newEntry = {}
+// Object.keys(entry).forEach(function (name) {
+//   newEntry[name] = entry[name].entry
+// })
 
 let webpackConfig = {
   entry: entry,
