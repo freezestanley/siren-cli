@@ -5,6 +5,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {axioshttp} from '@/widget'
+import conf from './config'
 import { ToastPlugin } from 'vux'
 Vue.use(ToastPlugin)
 
@@ -16,15 +17,6 @@ export const app = new Vue({
   router,
   template: '<App/>',
   components: { App }
-})
-app.$vux.toast.show({
-  text: '请重新登录!',
-  type: 'text',
-  width: '50%',
-  isShowMask: true,
-  onHide () {
-    // window.closeWebview()
-  }
 })
 // axiosHttp(app)
 axioshttp(app)

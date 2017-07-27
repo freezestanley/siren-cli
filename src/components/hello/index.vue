@@ -1,15 +1,19 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>this is aa</h2>
+    ======================
+    <test></test>
+    ======================
+    <test2></test2>
+    <!-- <world></world> -->
     <div @click="fetchTest">asdfas</div>
   </div>
 </template>
 
 <script>
-import {ILOGIN, ITEST} from '../api'
+import {ILOGIN, ITEST} from '@/api'
 export default {
-  name: 'aa',
+  name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
