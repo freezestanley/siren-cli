@@ -1,16 +1,16 @@
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
+var entry = require('../config/entry')
 var vueLoaderConfig = require('./vue-loader.conf')
+var vuxLoader = require('vux-loader')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-module.exports = {
-  entry: {
-    app: './src/main.js'
-  },
+let webpackConfig = {
+  entry: entry,
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -22,7 +22,10 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'static': resolve('static'),
+      'assets': resolve('src/assets'),
+      '@widget': resolve('widget')
     }
   },
   module: {
@@ -51,7 +54,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[ext]?v=[hash:7]')
         }
       },
       {
@@ -59,7 +62,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath('media/[name].[ext]?v=[hash:7]')
         }
       },
       {
@@ -67,9 +70,21 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[ext]?v=[hash:7]')
         }
       }
     ]
   }
 }
+
+module.exports = vuxLoader.merge(webpackConfig, {
+  options: {},
+  plugins: [
+    {
+      name: 'vux-ui'
+    },
+    {
+      name: 'duplicate-style'
+    }
+  ]
+})

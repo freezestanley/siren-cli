@@ -28,8 +28,19 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      chunks: ['app']
     }),
-    new FriendlyErrorsPlugin()
+    new HtmlWebpackPlugin({
+      filename: 'share/index.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['share']
+    }),
+    new FriendlyErrorsPlugin(),
+    new webpack.DllReferencePlugin({
+        context: path.resolve(__dirname, '..'),
+        manifest: require('../dist/dll/vendor_manifest.json')
+    })
   ]
 })

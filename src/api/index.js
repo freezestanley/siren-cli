@@ -1,3 +1,7 @@
+/*
+  枚举因为大写
+  且以I开头
+*/
 let root = ''
 let login = ''
 let test = ''

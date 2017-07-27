@@ -36,10 +36,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
-
 Vue.use(VueAxios, axios)
+
 if (process.env.NODE_ENV === 'production') {
-  // axios.defaults.baseURL = '//' + document.domain + '/api'
+  axios.defaults.baseURL = '//' + document.domain + '/api'
 } else {
   axios.defaults.baseURL = '/api'
 }
@@ -60,10 +60,58 @@ axios.defaults.timeout = 20000
 // axios.defaults.headers.token = '12312312312313'
 // axios.defaults.headers.deviceId = window.cookie.get('hq_http_deviceid')
 // axios.defaults.headers.post['token'] = 'asdfasdfasf'
+// let x = () => {}
 axios.postFrom = (uri, param) => {
   let params = new URLSearchParams()
   Object.keys(param).forEach((v, i, a) => {
     params.append(v, param[v])
   })
   return axios.post(uri, params)
+}
+
+export default function (app) {
+  // http request 拦截器
+  app.axios.interceptors.request.use(
+    config => {
+      // config.headers.token = ''
+      // config.headers.common['MUserAgent'] = 'sssssss'
+      // app.$store.dispatch('toggleLoadingStatus', true)
+      return config
+    },
+    err => {
+      return Promise.reject(err)
+    }
+  )
+
+  // 添加响应拦截器
+  app.axios.interceptors.response.use(function (response) {
+    // if (response.data.errorCode == 1 || response.data.errorCode == 112 || response.data.errorCode == 72) {
+    //   app.$vux.toast.show({
+    //     text: '请重新登录!',
+    //     type: 'text',
+    //     width: '50%',
+    //     isShowMask: true,
+    //     onHide () {
+    //       window.closeWebview()
+    //     }
+    //   })
+    // }
+    // // 对响应数据做些事
+    // app.$store.dispatch('toggleLoadingStatus', false)
+    return response
+  }, function (error) {
+    // 请求错误时做些事
+    // app.$store.dispatch('toggleLoadingStatus', false)
+    // let msg = '请求超时,请稍后再试'
+    // app.$vux.toast.show({
+    //   text: `${msg}`,
+    //   type: 'text',
+    //   width: '50%',
+    //   isShowMask: true,
+    //   onHide () {
+    //     // window.closeWebview()
+    //   }
+    // })
+    return Promise.reject(error)
+  })
 }

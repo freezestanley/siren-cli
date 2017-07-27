@@ -5,6 +5,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {axioshttp} from '@/widget'
+
 import { ToastPlugin } from 'vux'
 Vue.use(ToastPlugin)
 
@@ -23,7 +24,6 @@ app.$vux.toast.show({
   width: '50%',
   isShowMask: true,
   onHide () {
-    // window.closeWebview()
   }
 })
 // axiosHttp(app)

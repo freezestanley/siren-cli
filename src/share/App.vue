@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/images/logo.png">
+    this is share
     <router-view></router-view>
   </div>
 </template>
@@ -9,10 +9,11 @@
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 export default {
-  name: 'app'
+  name: 'share'
 }
 </script>
 
 <style lang='scss' rel="stylesheet/scss">
 @import '~@/assets/scss/common';
+
 </style>
