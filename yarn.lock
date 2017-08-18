@@ -6873,6 +6873,18 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "http://r.cnpmjs.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vsiren@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/vsiren/-/vsiren-1.0.9.tgz#bc7c768cd2d549dfa768c55792b45a1da28683d0"
+  dependencies:
+    axios "^0.16.2"
+    babel-polyfill "^6.23.0"
+    es6-promise "^4.1.1"
+    isomorphic-fetch "^2.2.1"
+    vue "^2.3.3"
+    vue-axios "^2.0.2"
+    vue-router "^2.7.0"
+
 vue-axios@^2.0.2:
   version "2.0.2"
   resolved "http://r.cnpmjs.org/vue-axios/download/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
@@ -6921,7 +6933,7 @@ vue-template-es2015-compiler@^1.5.3:
   version "1.5.3"
   resolved "http://r.cnpmjs.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.5.3.tgz#22787de4e37ebd9339b74223bc467d1adee30545"
 
-vue@^2.4.2:
+vue@^2.3.3, vue@^2.4.2:
   version "2.4.2"
   resolved "http://r.cnpmjs.org/vue/download/vue-2.4.2.tgz#a9855261f191c978cc0dc1150531b8d08149b58c"
 

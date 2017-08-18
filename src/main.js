@@ -7,6 +7,7 @@ import router from './router'
 import {axioshttp} from '@/widget'
 import conf from './config'
 import { ToastPlugin } from 'vux'
+import 'vsiren/dist/vsiren.min.css'
 Vue.use(ToastPlugin)
 
 Vue.config.productionTip = false

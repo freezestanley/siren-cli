@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     ======================
+    <VsIosSwitch></VsIosSwitch>
     <test></test>
     ======================
     <test2></test2>
@@ -12,6 +13,7 @@
 
 <script>
 import {ILOGIN, ITEST} from '@/api'
+import {VsIosSwitch} from 'vsiren'
 export default {
   name: 'hello',
   data () {
@@ -19,10 +21,14 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  components: {
+    VsIosSwitch
+  },
   methods: {
     fetchTest () {
       this.axios.post(ILOGIN).then((response) => {
         console.dir(response)
+        this.$router.push({path: '/test2'})
       }).catch((err) => {
         console.log(err)
         throw new Error(err)
