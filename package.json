@@ -5,7 +5,7 @@
   "author": "Administractor <admin@example.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "webpack-dashboard -- node build/dev-server.js",
     "dll": "webpack --config build/webpack.config.dll.js -p  --progress && rm -rf service/views/** && cp -r dist/* service/views/ && npm run build",
     "mock": "node service/app.js",
     "start": "node build/dev-server.js",
@@ -105,6 +105,7 @@
     "vux-loader": "^1.1.4",
     "webpack": "^2.6.1",
     "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dashboard": "^0.4.0",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"

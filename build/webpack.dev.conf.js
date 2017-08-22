@@ -7,7 +7,8 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var entry = require('../config/entry')
-
+// var DashboardPlugin = require('webpack-dashboard/plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 // let newEntry = []
 // Object.keys(entry).forEach(function (name) {
 //   newEntry.push(entry[name].HWPdev)
@@ -57,5 +58,7 @@ module.exports = merge(baseWebpackConfig, {
     //     context: path.resolve(__dirname, '..'),
     //     manifest: require('../dist/dll/vendor_manifest.json')
     // })
+    new DashboardPlugin({ port: 8099 })
+    // new DashboardPlugin()
   ]
 })
